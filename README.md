@@ -1,2 +1,2 @@
 # myapi
-a api server based on openresty
+an api server based on openresty
