@@ -15,6 +15,6 @@
     if  Methmod == "GET" then
     require (ngx.var.path.."/get")
     end
-    if  Methmod == "post" then
+    if  Methmod == "POST" then
     require (ngx.var.path.."/post")
     end
