@@ -2,7 +2,7 @@
     myappdir = "/usr/local/openresty/myapi"
     package.path = myappdir..'/common/?.lua;'..myappdir..'/controller/?.lua'
     constent = require ("constent")
-    func = require ("functions")
+    local func = require ("functions")
 -- [[if location = / --]]
     if not func.IsInTable(ngx.var.path,constent["apis"])  then
        ngx.say("welcome")
