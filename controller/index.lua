@@ -1,10 +1,10 @@
 --init something
-    myappdir = "/usr/local/openresty/myapi"
-    package.path = myappdir..'/common/?.lua;'..myappdir..'/controller/?.lua'
-    constent = require ("constent")
-    local func = require ("functions")
+    local AppDir = ngx.var.appdir
+    package.path = AppDir..'/common/?.lua;'..AppDir..'/controller/?.lua'
+    Constent = require ("constent")
+    local Func = require ("functions")
 -- [[if location = / --]]
-    if not func.IsInTable(ngx.var.path,constent["apis"])  then
+    if not Func.is_in_table(ngx.var.path,Constent["apis"])  then
        ngx.say("welcome")
        return
     end

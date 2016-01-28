@@ -1,2 +1,2 @@
-ngx.say("hello this is an api of conf-file"..constent["apikey"])
+ngx.say("hello this is an api of conf-file"..Constent["apikey"])
 return
