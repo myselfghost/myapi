@@ -1,6 +1,6 @@
 --init something
     local AppDir = ngx.var.appdir
-    package.path = AppDir..'/common/?.lua;'..AppDir..'/controller/?.lua'
+    package.path = AppDir.."/common/?.lua;"..AppDir.."/controller/?.lua;;"
     Constent = require ("constent")
     local Func = require ("functions")
 -- [[if location = / --]]
