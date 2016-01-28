@@ -1,6 +1,6 @@
 local _M = {}
 function _M.is_in_table(value, tbl)
-for k,v in ipairs(tbl) do
+for k,v in pairs(tbl) do
   if v == value then
     return true
   end
@@ -8,7 +8,7 @@ end
 return false
 end
 function _M.is_key(key, tbl)
-  for k,v in ipairs(tbl) do
+  for k,v in pairs(tbl) do
     if k == key then
       return true
     end
@@ -24,12 +24,12 @@ function _M.get_post_args()
   end
   return args
 end
-function _M.is_all_args(args,tbl)
-  for k2,v2 in ipairs(tbl) do
+function _M.is_all_args(args,keys)
+  for k2,v2 in pairs(keys) do
     if not _M.is_key(v2,args) then
       return false
     end
   end
-  return false
+  return true
 end
 return _M
