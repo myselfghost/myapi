@@ -2,7 +2,9 @@
 local _M = { _clsName = 'mysqlConn' }
 local mt = { __index = _M }
  
-local mysql = require "resty.mysql"
+local mysql = require ("resty.mysql")
+local dbinfo = require ("db")
+local options = dbinfo["main"]
 local error = error
 local ipairs = ipairs
 local pairs = pairs
