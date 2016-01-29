@@ -3,8 +3,6 @@ local _M = { _clsName = 'mysqlConn' }
 local mt = { __index = _M }
  
 local mysql = require ("resty.mysql")
-local dbinfo = require ("common.db")
-local options = dbinfo["main"]
 local error = error
 local ipairs = ipairs
 local pairs = pairs
@@ -34,7 +32,7 @@ local function mysql_connect(options)
         max_packet_size = max_packet_size
     }
     local ok, err, errno, sqlstate = db:connect(db_options)
-    if not ok then error("failed to connect to mysql: " .. err .. ": " .. errno .. " " .. sqlstate) end
+    if not ok then error("failed to connect to mysql: " .. err) end
     return db
 end
 
