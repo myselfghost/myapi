@@ -2,11 +2,10 @@ local _M = {}
 local mt = {__index = _M}
 local Func = require ("common.functions")
 local Val = require ("library.validation")
-local Sql = require ("model.conffile.post")
+local Model = require ("model.conffile.post")
 local Json = require ("cjson")
 
 function _M.index()
-
 
 local Args = Func.get_post_args()
 --[[if not Args then
@@ -27,14 +26,7 @@ if not valid then
 	return
 end
 
-local valid, e = Val.email(Args["a2"])
-if not valid then
-	ngx.say("a2 is not allowed")
-	return
-end
-
-local model = require ("model.conffile.post")
-local res = model.add(Args["a1"],Args["a2"],Args["b1"])
+local res = Model.add(Args["a1"],Args["a2"],Args["b1"])
 ngx.say(Json.encode(res))
 
 ngx.say("conffile post ok")
