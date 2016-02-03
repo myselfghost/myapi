@@ -13,7 +13,8 @@
     ngx.req.read_body()
     local Methmod = ngx.req.get_method()
     if  Methmod == "GET" then
-    require ("controller."..ngx.var.path.."/get")
+    local  get = require ("controller."..ngx.var.path.."/get")
+    get.index()
     end
     if  Methmod == "POST" then
     local  post = require ("controller."..ngx.var.path.."/post")
