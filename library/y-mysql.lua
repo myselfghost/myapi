@@ -12,6 +12,7 @@ local function tapd(t, v) t[#t+1] = v end
  
 local timeout_subsequent_ops = 5000 -- 5 sec
 local max_idle_timeout = 10000 -- 10 sec
+local keeplive_pool = 300
 local max_packet_size = 1024 * 1024 -- 1MB
 local STATE_CONNECTED = 1
 local STATE_COMMAND_SENT = 2
@@ -40,7 +41,7 @@ local function mysql_connect(options)
 end
 
 local function mysql_keepalive(db, options)
-    local ok, err = db:set_keepalive(max_idle_timeout, options.pool)
+    local ok, err = db:set_keepalive(max_idle_timeout, keeplive_pool)
     if not ok then error("failed to set mysql keepalive: ", err) end
 end
  

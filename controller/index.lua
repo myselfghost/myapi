@@ -1,6 +1,6 @@
 --init something
     local AppDir = ngx.var.appdir
-    package.path = AppDir.."/?.lua;;"
+    package.path = AppDir.."/?.lua;/usr/local/openresty/lualib/?.lua;"
     Constent = require ("common.constent")
     local Func = require ("common.functions")
 -- [[if location = / --]]
