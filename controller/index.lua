@@ -16,5 +16,7 @@
     require ("controller."..ngx.var.path.."/get")
     end
     if  Methmod == "POST" then
-    require ("controller."..ngx.var.path.."/post")
+    local  post = require ("controller."..ngx.var.path.."/post")
+    post.index()
     end
+    return

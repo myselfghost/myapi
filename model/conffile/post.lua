@@ -1,12 +1,13 @@
 local _M = {}
+local mt = {__index = _M}
 local mysql = require("library.y-mysql")
-local dbinfo = require ("common.db")
-local options = dbinfo["main"]
+
 
 function _M.add(a1,a2,b1)
-	mysql:new(options)
+	local db = mysql:new()
 	local qer = "INSERT INTO conffile (a1,a2,b1) VALUES ("..a1..","..a2..","..b1..")"
-	local res = mysql:execute(qer)
+	local res = db:execute(qer)
 	return res
 end
+setmetatable(_M,mt)
 return _M

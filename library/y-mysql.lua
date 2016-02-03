@@ -16,6 +16,9 @@ local max_packet_size = 1024 * 1024 -- 1MB
 local STATE_CONNECTED = 1
 local STATE_COMMAND_SENT = 2
 
+local dbinfo = require ("common.db")
+local options = dbinfo["main"]
+
 local function mysql_connect(options)
  
     local db, err = mysql:new()
@@ -53,7 +56,7 @@ local function db_execute(options, db, sql, rowAsList)
     return res
 end
 
-function _M:new(options)
+function _M:new()
     local this = {
     	_clsName = _M._clsName,
 		options = options, 
